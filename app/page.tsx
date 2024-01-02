@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Image from 'next/image';
 
 export default async function Home() {
@@ -16,3 +17,7 @@ export default async function Home() {
         </main>
     );
 }
+
+export const metadata: Metadata = {
+    title: 'Home Page',
+};
