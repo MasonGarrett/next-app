@@ -1,23 +1,19 @@
-import { Metadata } from 'next';
-import Image from 'next/image';
+'use client';
 
-export default async function Home() {
+export default function Home() {
     return (
         <main className="relative h-screen">
             <h1>Hello, World!</h1>
-            <Image
-                src="https://bit.ly/react-cover"
-                alt="coffee"
-                fill
-                className="object-cover"
-                sizes="(max-width: 480px) 100vw, (max-widh: 768px) 50vw, 33vw"
-                quality={100}
-                priority
-            />
+            <button
+                onClick={async () => {
+                    const _ = (await import('lodash')).default;
+                    const users = [{ name: 'c' }, { name: 'b' }, { name: 'a' }];
+                    const sorted = _.orderBy(users, ['name']);
+                    console.log(sorted);
+                }}
+            >
+                Sort
+            </button>
         </main>
     );
 }
-
-export const metadata: Metadata = {
-    title: 'Home Page',
-};
